@@ -36,6 +36,7 @@ class _FavorilerSayfaState extends State<FavorilerSayfa> {
           autofocus: true,
           onChanged: (arama) {
             // context.read<AnasayfaCubit>().ara(arama);
+            context.read<SepetCubit>().yemeklerdeAra(arama);
           },
         )
             : const Text(
@@ -127,12 +128,12 @@ class _FavorilerSayfaState extends State<FavorilerSayfa> {
                                     IconButton(
                                       onPressed: () async {
                                         try {
-                                          await context
+                                           context
                                               .read<SepetCubit>()
                                               .yemekSil(int.parse(
                                               urun.sepet_yemek_id));
                                           // Silme işleminden sonra yemekleri yeniden yükle
-                                          await context
+                                           context
                                               .read<SepetCubit>()
                                               .yemekleriYukle();
                                         } catch (e) {

@@ -9,11 +9,13 @@ class AnasayfaCubit extends Cubit<List<Yemekler>>{
      var liste = await arepo.yemekleriYukle();
      emit(liste);
   }
-  /*Future<void> sepeteEkle(Yemekler yemek) async {
-    arepo.sepeteEkle(yemek.yemek_adi,);
+  Future<void> yemeklerdeAra(String arama) async {
+    var liste = await arepo.yemeklerdeAra(arama);
+    emit(liste);
   }
 
-   */
+
+
 
 
 

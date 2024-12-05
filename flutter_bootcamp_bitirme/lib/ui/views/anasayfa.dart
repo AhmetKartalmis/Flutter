@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bootcamp_bitirme/data/entity/SepetYemekler.dart';
@@ -6,7 +5,6 @@ import 'package:flutter_bootcamp_bitirme/data/entity/Yemekler.dart';
 import 'package:flutter_bootcamp_bitirme/ui/cubit/AnasayfaCubit.dart';
 import 'package:flutter_bootcamp_bitirme/ui/views/urun_detay.dart';
 
-import '../../data/entity/Urunler.dart';
 
 class Anasayfa extends StatefulWidget {
   const Anasayfa({super.key});
@@ -30,34 +28,38 @@ class _AnasayfaState extends State<Anasayfa> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor:  Color.fromARGB(255, 183, 13, 13),
+          backgroundColor: const Color.fromARGB(255, 183, 13, 13),
           centerTitle: true,
-          title:aramaVarMi ? TextField(
-          decoration: InputDecoration(hintText: "Ürün, Marka, Mağaza Ara"),
-          onChanged: (arama){
-           // context.read<AnasayfaCubit>().ara(arama);
-
-
-          },
-        ):const Text("Menü",style: TextStyle(color: Colors.white),),
+          title: aramaVarMi
+              ? TextField(
+            style: const TextStyle(color: Colors.white),
+            decoration: const InputDecoration(
+              hintText: "Yemek, Tatlı, İçecek Ara",
+              hintStyle: TextStyle(color: Colors.white),
+            ),
+            autofocus: true,
+            onChanged: (arama) {
+              context.read<AnasayfaCubit>().yemeklerdeAra(arama);
+            },
+          )
+              : const Text(
+            "Yemekler",
+            style: TextStyle(color: Colors.white),
+          ),
           actions: [
-            aramaVarMi?
-            IconButton(onPressed: (){
-              setState(() {
-                aramaVarMi =false;
-              });
-             // context.read<AnasayfaCubit>().kisileriYukle();
-
-
-            },icon: const Icon(Icons.clear),):
-            IconButton(onPressed: (){
-              setState(() {
-                aramaVarMi = true;
-              });
-
-            },icon: const Icon(Icons.search,color: Colors.white,),)
-
-          ],),
+            IconButton(
+              onPressed: () {
+                setState(() {
+                  aramaVarMi = !aramaVarMi;
+                });
+              },
+              icon: Icon(
+                aramaVarMi ? Icons.clear : Icons.search,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
 
         body: SingleChildScrollView(
           child: Column(

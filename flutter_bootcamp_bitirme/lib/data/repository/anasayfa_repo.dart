@@ -30,6 +30,24 @@ class AnasayfaRepository{
 
 
   }
+  Future<List<Yemekler>> yemeklerdeAra(String arama) async {
+    var url = "http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php";
+    var cevap = await Dio().get(url);
+
+    if (cevap.data.toString() == "") {
+      return []; // Boş bir liste döndür
+    } else {
+      try {
+        var tumYemekler = parseYemekler(cevap.data.toString());
+        // Arama kriterine göre filtreleme yap
+        return tumYemekler.where((yemek) {
+          return yemek.yemek_adi.toLowerCase().contains(arama.toLowerCase());
+        }).toList();
+      } catch (e) {
+        return [];
+      }
+    }
+  }
 
 
 

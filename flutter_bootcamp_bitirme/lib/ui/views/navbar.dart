@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 import 'anasayfa.dart';
 import 'sepet.dart';
 
@@ -13,12 +11,6 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   int selectedIndex = 0;
   var pages = [const Anasayfa(),const FavorilerSayfa()];
-
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,8 +29,6 @@ class _NavbarState extends State<Navbar> {
           });
         },
       ),
-
-
     );
   }
 }

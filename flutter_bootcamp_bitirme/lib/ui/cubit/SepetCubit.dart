@@ -17,7 +17,10 @@ class SepetCubit extends Cubit<List<SepetYemekler>>{
     if (state.length == 0) { // Liste boş mu kontrol et
       emit([]); // Liste boş ise boş liste emit et
     }
-
-
+  }
+  Future<void> yemeklerdeAra(String arama) async {
+    var liste = await srepo.sepettekilerdeAra(arama);
+    if(liste.isEmpty) emit([]);
+    else emit(liste);
   }
 }
