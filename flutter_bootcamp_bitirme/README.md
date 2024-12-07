@@ -23,10 +23,13 @@ Flutter ile geliştirilmiş, yemekleri listeleyip sepete ekleyebileceğiniz ve d
 - Kullanıcı dostu arayüz.  
 - Hızlı yemek arama.  
 - Sepetteki ürünleri kolayca yönetme.  
-- Çoklu ürün ekleme özelliği ile zaman kazanın.  
+- Çoklu ürün ekleme.  
 
 ---
 
-![arama](https://github.com/user-attachments/assets/9bc31543-fe31-4fc6-b424-375fdc5777f9)
+<img src="https://github.com/user-attachments/assets/e7622999-bbbd-43b4-89f6-f200ef00c622" alt="alt text" width="300" height="700">
+<img src="https://github.com/user-attachments/assets/9bc31543-fe31-4fc6-b424-375fdc5777f9" alt="alt text" width="300" height="700">
 
-![yemekler](https://github.com/user-attachments/assets/e7622999-bbbd-43b4-89f6-f200ef00c622)
+
+
+
